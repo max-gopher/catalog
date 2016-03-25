@@ -13,4 +13,11 @@ class ProfileController extends Controller
         $model = new Profile();
         return $this->render('index');
     }
+
+    public function actionEdituser()
+    {
+
+        $model = new Profile();
+        $getUser;
+    }
 }
