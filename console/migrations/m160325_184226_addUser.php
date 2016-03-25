@@ -9,15 +9,13 @@ class m160325_184226_addUser extends Migration
     {
         try {
             //тут сам код миграции вверх
-            $this->addColumn('user', [
-                'name' => $this->string(30),
-                'firstname' => $this->string(30),
-                'phone' => $this->string(30),
-                'country' => $this->string(30),
-                'city' => $this->string(30),
-                'postaddress' => $this->string(10),
-                'address' => $this->string(200),
-            ]);
+            $this->addColumn('user', 'name', $this->string(30));
+            $this->addColumn('user', 'firstname', $this->string(30));
+            $this->addColumn('user', 'phone', $this->string(30));
+            $this->addColumn('user', 'country', $this->string(30));
+            $this->addColumn('user', 'city', $this->string(30));
+            $this->addColumn('user', 'postaddress', $this->string(10));
+            $this->addColumn('user', 'address', $this->string(200));
         } catch (\Exception $e) {
             echo Console::output(Console::ansiFormat($e->getMessage(), [Console::FG_RED]) . PHP_EOL);
             return false;
@@ -29,7 +27,13 @@ class m160325_184226_addUser extends Migration
     {
         try {
             //тут сам код миграции отмены
-            $this->dropColumn('user', ['name', 'firstname', 'phone', 'country', 'city', 'postaddress', 'address']);
+            $this->dropColumn('user', 'name');
+            $this->dropColumn('user', 'firstname');
+            $this->dropColumn('user', 'phone');
+            $this->dropColumn('user', 'country');
+            $this->dropColumn('user', 'city');
+            $this->dropColumn('user', 'postaddress');
+            $this->dropColumn('user', 'address');
         } catch (\Exception $e) {
             echo Console::output(Console::ansiFormat($e->getMessage(), [Console::FG_RED]) . PHP_EOL);
             return false;
